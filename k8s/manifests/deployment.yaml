@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-teste
+spec:
+  selector:
+    matchLabels:
+      app: myapp-teste
+  template:
+    metadata:
+      labels:
+        app: myapp-teste
+    spec:
+      containers:
+      - name: myapp
+        image: phiva1985/myapp-teste:v1
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 90
